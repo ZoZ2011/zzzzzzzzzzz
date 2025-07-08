@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Hany Metwally</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            cursor: default;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        nav {
+            background-color: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #0022FF, #0066FF);
+            transition: all 0.5s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 34, 255, 0.7), 0 0 30px rgba(0, 34, 255, 0.5);
+        }
+        
+        .gradient-btn {
+            background: linear-gradient(to right, #ff5fc0, #347eff);
+            transition: all 0.4s ease;
+        }
+        
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 34, 255, 0.3);
+        }
+        
+        .square-box {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin: 0 auto;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(to right, #0022FF, #0066FF);
+            border-radius: 3px;
+        }
+        
+        /* Form Styles */
+        .contact-form input,
+        .contact-form textarea {
+            height: 48px;
+            min-height: 48px;
+            transition: none !important;
+        }
+        
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .gradient-focus:focus {
+            background: linear-gradient(#0f172a, #0f172a) padding-box,
+                        linear-gradient(to right, #ff5fc0, #347eff) border-box;
+            border: 2px solid transparent !important;
+            outline: none;
+            box-shadow: none;
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+        }
+        
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .confirmation-box {
+            background: #020617;
+            border: 1px solid rgba(0, 34, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 34, 255, 0.2);
+        }
+        
+        .checkmark-animation {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: dash 1.5s ease-out forwards;
+        }
+        
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="py-4 px-6 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white">
+                <span>Hany</span><span class="text-primary">.</span>
+            </a>
+            <div class="hidden md:flex space-x-8 mx-auto">
+                <a href="index.html#home" class="hover:text-primary transition">Home</a>
+                <a href="index.html#about" class="hover:text-primary transition">About</a>
+                <a href="index.html#articles" class="hover:text-primary transition">Articles</a>
+                <a href="index.html#videos" class="hover:text-primary transition">Videos</a>
+                <a href="index.html#contact" class="hover:text-primary transition">Contact</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://www.linkedin.com/in/hany-metwally-msc-phd-candidate-2ba00769" class="text-xl hover:text-primary transition">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-dark">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white section-title">
+                    Get In Touch
+                </h2>
+                <p class="text-gray-300">Feel free to reach out to me using the form below or through my contact information</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <div class="bg-darker p-8 rounded-xl shadow-xl h-full">
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="square-box bg-primary bg-opacity-20 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1 text-white">Email</h4>
+                                    <p class="text-gray-300">Wellcontrolsolutions@Outlook.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="square-box bg-primary bg-opacity-20 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1 text-white">Phone</h4>
+                                    <p class="text-gray-300">+966 55 636 7120</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="square-box bg-primary bg-opacity-20 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1 text-white">Location</h4>
+                                    <p class="text-gray-300">Saudi Arabia, El Khobar</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-gray-700">
+                            <h4 class="text-lg font-semibold mb-4 text-white">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.linkedin.com/in/hany-metwally-msc-phd-candidate-2ba00769" class="square-box bg-dark rounded-full hover:bg-primary hover:bg-opacity-20 text-2xl">
+                                    <i class="fab fa-linkedin text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-darker p-8 rounded-xl shadow-xl h-full">
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Send Me a Message</h3>
+                        <form id="contactForm" class="contact-form">
+                            <!-- Name Field -->
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-300 mb-2">
+                                    Your Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="name" id="name" 
+                                    class="w-full bg-dark border border-gray-700 rounded-lg py-3 px-4 text-white gradient-focus focus:outline-none" 
+                                    placeholder="Hany Metwally" required>
+                                <p id="nameError" class="error-message">
+                                    <i class="fas fa-exclamation-circle mr-1"></i> Please enter your name
+                                </p>
+                            </div>
+                            
+                            <!-- Email Field -->
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-300 mb-2">
+                                    Email Address <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" name="email" id="email" 
+                                    class="w-full bg-dark border border-gray-700 rounded-lg py-3 px-4 text-white gradient-focus focus:outline-none" 
+                                    placeholder="your@email.com" required>
+                                <p id="emailError" class="error-message">
+                                    <i class="fas fa-exclamation-circle mr-1"></i> Please enter a valid email address
+                                </p>
+                            </div>
+                            
+                            <!-- Subject Field -->
+                            <div class="mb-6">
+                                <label for="subject" class="block text-gray-300 mb-2">
+                                    Subject <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="subject" id="subject" 
+                                    class="w-full bg-dark border border-gray-700 rounded-lg py-3 px-4 text-white gradient-focus focus:outline-none" 
+                                    placeholder="Subject of your message" required>
+                                <p id="subjectError" class="error-message">
+                                    <i class="fas fa-exclamation-circle mr-1"></i> Please enter a subject
+                                </p>
+                            </div>
+                            
+                            <!-- Message Field -->
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-300 mb-2">
+                                    Your Message <span class="text-red-500">*</span>
+                                </label>
+                                <textarea name="message" id="message" rows="5" 
+                                    class="w-full bg-dark border border-gray-700 rounded-lg py-3 px-4 text-white gradient-focus focus:outline-none" 
+                                    placeholder="Type your message here..." required></textarea>
+                                <p id="messageError" class="error-message">
+                                    <i class="fas fa-exclamation-circle mr-1"></i> Please enter your message
+                                </p>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="gradient-btn w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg">
+                                <i class="fas fa-paper-plane mr-2"></i> Send Message
+                            </button>
+                            
+                            <p class="text-xs text-gray-500 mt-4 text-center">
+                                <i class="fas fa-lock mr-1"></i> Your information is secure and will never be shared
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 bg-darker border-t border-gray-800">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-500">© 2025 Hany Metwally. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form Validation and Submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            let isValid = true;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            // Validate name
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            if (!name.value.trim()) {
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate email
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate subject
+            const subject = document.getElementById('subject');
+            const subjectError = document.getElementById('subjectError');
+            if (!subject.value.trim()) {
+                subjectError.style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate message
+            const message = document.getElementById('message');
+            const messageError = document.getElementById('messageError');
+            if (!message.value.trim()) {
+                messageError.style.display = 'block';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Prepare form data
+                const formData = new FormData(this);
+                
+                // Send form data using Fetch API
+                fetch('https://formspree.io/f/mdkzrdvp', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Redirect to thank-you page on success
+                        window.location.href = 'thank-you.html';
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('There was a problem submitting your form. Please try again later.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

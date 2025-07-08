@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepwater Horizon Incident - Hany Metwally</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0022FF',
+                        dark:    '#0f172a',
+                        darker:  '#020617',
+                        pink:    '#ff5fc0',
+                        blue:    '#347eff'
+                    },
+                    transitionDuration: {
+                        'slow': '500ms'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body{
+            font-family:'Inter',sans-serif;
+            background:#0f172a;
+            color:#fff;
+            opacity:0;
+            animation:fadeIn 1s ease-in forwards;
+        }
+        @keyframes fadeIn{to{opacity:1;}}
+
+        .btn-primary{
+            background:linear-gradient(45deg,#0022FF,#0066FF);
+            transition:.5s;
+        }
+        .btn-primary:hover{
+            transform:translateY(-2px);
+            box-shadow:0 0 15px rgba(0,34,255,.7),0 0 30px rgba(0,34,255,.5);
+        }
+
+        .card-hover{transition:.5s;}
+        .card-hover:hover{
+            transform:translateY(-5px);
+            box-shadow:0 10px 25px rgba(0,0,0,.2);
+        }
+
+        .gradient-btn{
+            background:linear-gradient(to right,#ff5fc0,#347eff);
+            transition:.4s;
+        }
+        .gradient-btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 10px 20px rgba(0,34,255,.3);
+        }
+
+        .section-title{
+            position:relative;
+            display:inline-block;
+            padding-bottom:10px;
+        }
+        .section-title:after{
+            content:'';
+            position:absolute;
+            width:70px;height:3px;
+            bottom:0;left:50%;
+            transform:translateX(-50%);
+            background:linear-gradient(to right,#0022FF,#0066FF);
+            border-radius:3px;
+        }
+
+        .post-card{
+            background:rgba(2,6,23,.7);
+            border-left:4px solid #0022FF;
+            transition:.3s;
+            position:relative;
+        }
+        .post-card:hover{
+            transform:translateY(-3px);
+            box-shadow:0 10px 20px rgba(0,34,255,.2);
+        }
+
+        .hashtag-link{color:#0066FF;transition:.3s;}
+        .hashtag-link:hover{color:#ff5fc0;text-decoration:underline;}
+
+        /* --- Hover effect for post titles only --- */
+        .post-box-title{
+            display:inline-block;
+            pointer-events:auto;
+            transition:color .4s ease,transform .4s ease;
+            cursor: pointer;
+        }
+        .post-box-title:hover{
+            color:#0066FF !important;
+            transform:translateX(4px);
+        }
+        /* ---------------------------------------- */
+
+        .social-icon{transition:.5s;}
+        .social-icon:hover{transform:translateY(-3px);color:#0022FF;}
+
+        html{scroll-behavior:smooth;}
+
+        .square-box{
+            width:3rem;height:3rem;
+            display:flex;align-items:center;justify-content:center;
+        }
+
+        /* روابط الناف بار */
+        .nav-link{transition:color .5s ease;}
+        .nav-link:hover{color:#0066FF;}
+
+        /* عناصر خاصة باللينكات داخل البوست */
+        .post-link{
+            position:absolute;
+            inset:0;
+            z-index:1;
+        }
+        .clickable-content{
+            position:relative;
+            z-index:2;
+            pointer-events:none;
+        }
+        .clickable-content a,
+        .clickable-content button{pointer-events:auto;}
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="py-4 px-6 sticky top-0 z-50 shadow-lg bg-darker bg-opacity-90 backdrop-filter backdrop-blur-md">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white mb-4 md:mb-0">
+                <span>Hany</span><span class="text-primary">.</span>
+            </a>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home"     class="nav-link">Home</a>
+                <a href="index.html#articles" class="nav-link">Back to Articles</a>
+                <a href="index.html#videos"   class="nav-link">Videos</a>
+                <a href="index.html#contact"  class="nav-link">Contact</a>
+            </div>
+
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="https://www.linkedin.com/in/hany-metwally-msc-phd-candidate-2ba00769"
+                   class="social-icon text-xl" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+            <button class="md:hidden text-xl"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="py-16 px-6 bg-dark">
+        <div class="container mx-auto text-center">
+            <div class="bg-darker p-8 rounded-xl shadow-xl max-w-4xl mx-auto card-hover">
+                <h1 class="text-3xl md:text-5xl font-bold mb-6">Deepwater Horizon Incident</h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    Technical analysis and lessons learned from the Deepwater Horizon disaster
+                    based on 19+ years of field experience in well control.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#posts" class="btn-primary py-3 px-6 rounded-full font-semibold">View Posts</a>
+                    <a href="https://www.linkedin.com/in/hany-metwally-msc-phd-candidate-2ba00769/search/?keywords=%23deepwater_horizon_incident"
+                       class="border-2 border-primary py-3 px-6 rounded-full font-semibold hover:bg-primary hover:bg-opacity-10 transition"
+                       target="_blank">View All on LinkedIn</a>
+                    <a href="index.html#articles"
+                       class="border-2 border-gray-600 py-3 px-6 rounded-full font-semibold hover:bg-gray-800 transition">
+                       Back to Articles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Posts -->
+    <section id="posts" class="py-16 px-6 bg-dark">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-2 section-title">Recent Posts</h2>
+                <p class="text-gray-300">
+                    Showing posts tagged with
+                    <a href="https://www.linkedin.com/in/hany-metwally-msc-phd-candidate-2ba00769/search/?keywords=%23deepwater_horizon_incident"
+                       class="hashtag-link" target="_blank">#deepwater_horizon_incident</a>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <div class="post-card p-6 rounded-xl card-hover relative">
+                    <a href="https://www.linkedin.com/posts/hany-metwally-msc-phd-candidate-2ba00769_deepwaterabrhorizonabrincident-activity-7319815276902924289-k6Yr?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAA5qwO4BSloo7yZkUkrFohzRta_Z350MswE"
+                       class="post-link" target="_blank"></a>
+                    <div class="clickable-content">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary bg-opacity-20 p-2 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <span class="text-gray-400">2 months ago</span>
+                        </div>
+                        <a href="https://www.linkedin.com/posts/hany-metwally-msc-phd-candidate-2ba00769_deepwaterabrhorizonabrincident-activity-7319815276902924289-k6Yr?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAA5qwO4BSloo7yZkUkrFohzRta_Z350MswE" target="_blank">
+                            <h3 class="text-xl font-semibold mb-3 post-box-title">Deepwater Horizon Incident Analysis</h3>
+                        </a>
+                        <p class="text-gray-400 mb-4">Comprehensive technical analysis of the Deepwater Horizon disaster and its impact on modern well control practices.</p>
+                        <a href="https://www.linkedin.com/posts/hany-metwally-msc-phd-candidate-2ba00769_deepwaterabrhorizonabrincident-activity-7319815276902924289-k6Yr?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAA5qwO4BSloo7yZkUkrFohzRta_Z350MswE"
+                           class="gradient-btn py-2 px-4 rounded-lg font-medium inline-block text-sm" target="_blank">
+                           View on LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More posts CTA -->
+            <div class="text-center mt-12">
+                <div class="bg-darker p-6 rounded-xl shadow-xl max-w-2xl mx-auto card-hover">
+                    <h3 class="text-xl font-semibold mb-4">Want to see more posts?</h3>
+                    <p class="text-gray-300 mb-6">
+                        Visit my LinkedIn profile to see all posts tagged with
+                        <a href="https://www.linkedin.com/in/hany-metwally-msc-phd-candidate-2ba00769/search/?keywords=%23deepwater_horizon_incident"
+                           class="hashtag-link" target="_blank">#deepwater_horizon_incident</a>
+                        or explore other technical topics.
+                    </p>
+                    <a href="index.html#articles" class="btn-primary py-3 px-8 rounded-full font-semibold inline-block">
+                        Back to All Articles
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 px-6 bg-darker border-t border-gray-800">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-500">© 2025 Hany Metwally. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <div class="square-box fixed bottom-6 right-6">
+        <button id="backToTop"
+                class="bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300
+                       w-full h-full flex items-center justify-center">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script>
+        // Back‑to‑top button logic
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
